@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FFF - Faiz Fast Food</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:Arial,sans-serif;
+ background:#f7f7f7;color:#222;
+}
+header{
+ background:#fff;padding:15px 5%;
+ display:flex;align-items:center;
+ justify-content:space-between;
+ position:sticky;top:0;z-index:100;
+ box-shadow:0 2px 10px #0001;
+}
+.logo{font-size:27px;font-weight:900;color:#e31837}
+.logo span{color:#222}
+nav a{
+ text-decoration:none;color:#222;
+ margin:0 10px;font-weight:bold;
+}
+.hero{
+ min-height:430px;
+ background:linear-gradient(90deg,#000c,#0004),
+ url('https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=1600')
+ center/cover;
+ color:white;display:flex;align-items:center;
+ padding:55px 8%;
+}
+.hero h1{font-size:55px;max-width:600px}
+.hero p{font-size:18px;margin:15px 0}
+.btn{
+ display:inline-block;padding:13px 22px;
+ border:0;border-radius:5px;
+ background:#e31837;color:white;
+ font-weight:bold;text-decoration:none;
+ cursor:pointer;
+}
+.btn:hover{background:#b90020}
+.section{padding:40px 5%}
+.section h2{font-size:30px;margin-bottom:25px}
+.categories{
+ display:flex;gap:10px;overflow-x:auto;
+ padding:10px 0 20px;
+}
+.cat{
+ border:1px solid #ddd;padding:12px 18px;
+ border-radius:25px;background:white;
+ white-space:nowrap;cursor:pointer;
+ font-weight:bold;
+}
+.cat.active,.cat:hover{
+ background:#e31837;color:white;
+}
+.search{
+ width:100%;padding:15px;
+ border:1px solid #ddd;border-radius:7px;
+ font-size:16px;margin:15px 0;
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:22px;
+}
+.card{
+ background:white;border-radius:12px;
+ overflow:hidden;box-shadow:0 3px 15px #0001;
+ transition:.2s;
+}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:180px;object-fit:cover}
+.info{padding:17px}
+.info h3{font-size:19px}
+.info p{font-size:13px;color:#777;margin:9px 0}
+.price{font-size:20px;font-weight:bold;color:#e31837}
+.add{
+ background:#e31837;color:white;border:0;
+ padding:11px;width:100%;margin-top:13px;
+ border-radius:5px;font-weight:bold;cursor:pointer;
+}
+.add:hover{background:#bd001d}
+.deal{
+ background:#171717;color:white;
+ padding:30px;border-radius:12px;
+ margin-bottom:30px;
+}
+.deal h2{color:#ff334f}
+.cart{
+ background:white;padding:25px;
+ border-radius:12px;margin-top:30px;
+ box-shadow:0 2px 12px #0001;
+}
+.cart-row{
+ display:flex;justify-content:space-between;
+ gap:10px;padding:13px 0;
+ border-bottom:1px solid #eee;
+ align-items:center;
+}
+.qty button{
+ padding:5px 10px;cursor:pointer;
+ border:0;background:#eee;border-radius:4px;
+}
+.total{font-size:23px;font-weight:bold;margin:20px 0}
+footer{
+ background:#151515;color:white;
+ padding:40px 5%;text-align:center;
+}
+footer p{margin:10px}
+.whatsapp{
+ position:fixed;bottom:20px;right:20px;
+ background:#20c765;color:white;
+ padding:16px 20px;border-radius:40px;
+ text-decoration:none;font-weight:bold;
+ z-index:200;box-shadow:0 3px 10px #0003;
+}
+@media(max-width:650px){
+ nav{display:none}
+ .hero h1{font-size:38px}
+ .hero{min-height:350px}
+ .section{padding:30px 4%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">FFF <span>FAIZ FAST FOOD</span></div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#menu">Menu</a>
+  <a href="#deals">Deals</a>
+  <a href="#cart">Cart 🛒</a>
+  <a href="#contact">Contact</a>
+ </nav>
+</header>
+
+<section class="hero" id="home">
+ <div>
+  <h1>IT'S TIME FOR SOME CRISPY CHICKEN!</h1>
+  <p>Welcome to FFF – Faiz Fast Food</p>
+  <p>Fresh taste. Crispy chicken. Delicious burgers.</p>
+  <a class="btn" href="#menu">ORDER NOW</a>
+ </div>
+</section>
+
+<section class="section" id="menu">
+
+<h2>OUR MENU 🍗</h2>
+<input class="search" id="search"
+ placeholder="🔍 Search your favourite food..."
+ oninput="renderMenu()">
+
+<div class="categories" id="categories"></div>
+
+<div class="grid" id="products"></div>
+
+</section>
+
+<section class="section" id="deals">
+ <div class="deal">
+  <h2>🔥 FFF FAMILY FEAST</h2>
+  <p>Explore our chicken buckets, burgers and sharing meals.</p>
+  <br>
+  <a href="#menu" class="btn">EXPLORE MENU</a>
+ </div>
+</section>
+
+<section class="section" id="cart">
+ <h2>🛒 YOUR SHOPPING CART</h2>
+ <div class="cart">
+  <div id="cartItems">Your cart is empty.</div>
+  <div class="total" id="total">Total: Rs. 0</div>
+  <button class="btn" onclick="checkout()">
+   ORDER ON WHATSAPP
+  </button>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <h2>CONTACT FFF</h2>
+ <div class="cart">
+  <h3>FFF – Faiz Fast Food</h3>
+  <p>📍 Location: DHA Phase 8, Lahore</p>
+  <p>📞 Phone: 03478603781</p>
+  <br>
+  <a class="btn" href="tel:03478603781">CALL NOW</a>
+  <a class="btn" href="https://wa.me/923478603781">WHATSAPP</a>
+  <a class="btn"
+  href="https://www.google.com/maps/search/?api=1&query=DHA+Phase+8+Lahore">
+  GET DIRECTIONS</a>
+ </div>
+</section>
+
+<footer>
+ <h2>FFF – FAIZ FAST FOOD</h2>
+ <p>Good Food. Great Taste. Happy Moments.</p>
+ <p>DHA Phase 8, Lahore, Pakistan</p>
+ <p>03478603781</p>
+ <p>© 2026 FFF. All Rights Reserved.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/923478603781">
+ 💬 WhatsApp
+</a>
+
+<script>
+
+const phone="923478603781";
+
+const menu=[
+// BURGERS
+{name:"Krunch Burger",price:310,cat:"Burgers",img:"photo-1568901346375-23c9450c58cd"},
+{name:"Zinger Burger",price:600,cat:"Burgers",img:"photo-1606755962773-d324e0a13086"},
+{name:"Kentucky Burger",price:660,cat:"Burgers",img:"photo-1553979459-d2229ba7433a"},
+{name:"Zinger Stacker",price:660,cat:"Burgers",img:"photo-1571091718767-18b5b1457add"},
+{name:"Mighty Zinger",price:770,cat:"Burgers",img:"photo-1550547660-d9450f859349"},
+
+// WRAPS
+{name:"Twister Wrap",price:440,cat:"Wraps",img:"photo-1626700051175-6818013e1d4f"},
+{name:"Zingeratha",price:390,cat:"Wraps",img:"photo-1626700051175-6818013e1d4f"},
+
+// CHICKEN
+{name:"Hot & Crispy Chicken 1 Pc",price:270,cat:"Chicken",img:"photo-1626082927389-6cd097cdc6ec"},
+{name:"3 Pcs Chicken",price:690,cat:"Chicken",img:"photo-1626645738196-c2a7c87a8f58"},
+{name:"Chicken & Chips",price:620,cat:"Chicken",img:"photo-1562967914-608f82629710"},
+{name:"Boneless Strips",price:440,cat:"Chicken",img:"photo-1562967914-608f82629710"},
+
+// BOXES
+{name:"Crispy Box",price:750,cat:"Boxes",img:"photo-1513639776629-7b61b0ac49cb"},
+{name:"WOW Box",price:1050,cat:"Boxes",img:"photo-1513104890138-7c749659a591"},
+{name:"Crispy Duo Box",price:1390,cat:"Boxes",img:"photo-1565299624946-b28f40a0ae38"},
+{name:"Xtreme Duo Box",price:1560,cat:"Boxes",img:"photo-1565299507177-b0ac66763828"},
+
+// SNACKS
+{name:"Hot Shots",price:480,cat:"Snacks",img:"photo-1562967914-608f82629710"},
+{name:"Hot Shot Shakers",price:550,cat:"Snacks",img:"photo-1626082927389-6cd097cdc6ec"},
+{name:"Chicken Nuggets 6 Pc",price:580,cat:"Snacks",img:"photo-1562967914-608f82629710"},
+{name:"Hot Wings",price:670,cat:"Snacks",img:"photo-1527477396000-e27163b481c2"},
+{name:"Rice & Spice",price:390,cat:"Snacks",img:"photo-1512058564366-18510be2db19"},
+
+// SIDES
+{name:"Regular Fries",price:340,cat:"Sides",img:"photo-1573080496219-bb080dd4f877"},
+{name:"Large Fries",price:410,cat:"Sides",img:"photo-1630384060421-cb20d0e0649d"},
+{name:"Masala Fries",price:360,cat:"Sides",img:"photo-1573080496219-bb080dd4f877"},
+{name:"Coleslaw",price:150,cat:"Sides",img:"photo-1512621776951-a57141f2eefd"},
+{name:"Corn on the Cob",price:290,cat:"Sides",img:"photo-1551754655-cd27e38d2076"},
+
+// DRINKS
+{name:"Pepsi 345ml",price:180,cat:"Drinks",img:"photo-1629203851122-3726ecdf080e"},
+{name:"7UP 345ml",price:180,cat:"Drinks",img:"photo-1629203851122-3726ecdf080e"},
+{name:"Family Drink 1.5L",price:250,cat:"Drinks",img:"photo-1629203851122-3726ecdf080e"}
+];
+
+let cart={};
+let category="All";
+
+const categories=["All","Burgers","Wraps","Chicken","Boxes","Snacks","Sides","Drinks"];
+
+function setupCategories(){
+ document.getElementById("categories").innerHTML=
+ categories.map(c=>
+ `<button class="cat ${c===category?'active':''}"
+ onclick="setCategory('${c}')">${c}</button>`
+ ).join("");
+}
+
+function setCategory(c){
+ category=c;
+ setupCategories();
+ renderMenu();
+}
+
+function renderMenu(){
+ let search=document.getElementById("search").value.toLowerCase();
+
+ let filtered=menu.filter(p=>
+ (category==="All"||p.cat===category)&&
+ p.name.toLowerCase().includes(search)
+ );
+
+ document.getElementById("products").innerHTML=
+ filtered.map(p=>`
+ <div class="card">
+  <img src="https://images.unsplash.com/${p.img}?w=600&auto=format&fit=crop"
+   alt="${p.name}" loading="lazy">
+  <div class="info">
+   <h3>${p.name}</h3>
+   <p>Fresh and delicious FFF special.</p>
+   <div class="price">Rs. ${p.price}</div>
+   <button class="add" onclick="addToCart('${p.name}')">
+    ADD TO CART +
+   </button>
+  </div>
+ </div>
+ `).join("");
+}
+
+function addToCart(name){
+ cart[name]=(cart[name]||0)+1;
+ renderCart();
+}
+
+function changeQty(name,change){
+ cart[name]+=change;
+ if(cart[name]<=0)delete cart[name];
+ renderCart();
+}
+
+function renderCart(){
+ let items=Object.keys(cart);
+ let total=0;
+
+ if(!items.length){
+  document.getElementById("cartItems").innerHTML="Your cart is empty.";
+ }else{
+  document.getElementById("cartItems").innerHTML=
+  items.map(name=>{
+   let p=menu.find(x=>x.name===name);
+   let amount=p.price*cart[name];
+   total+=amount;
+   return `
+   <div class="cart-row">
+    <div>
+     <b>${name}</b><br>
+     Rs. ${amount}
+    </div>
+    <div class="qty">
+     <button onclick="changeQty('${name}',-1)">−</button>
+     ${cart[name]}
+     <button onclick="changeQty('${name}',1)">+</button>
+    </div>
+   </div>`;
+  }).join("");
+ }
+ total=items.reduce((sum,name)=>{
+  return sum+menu.find(p=>p.name===name).price*cart[name];
+ },0);
+
+ document.getElementById("total").innerText="Total: Rs. "+total;
+}
+
+function checkout(){
+ let items=Object.keys(cart);
+ if(!items.length){
+  alert("Please add some food to your cart!");
+  return;
+ }
+
+ let total=0;
+ let message="*NEW ORDER - FFF FAIZ FAST FOOD*%0A%0A";
+ message+="Location: DHA Phase 8, Lahore%0A%0A";
+
+ items.forEach(name=>{
+  let p=menu.find(x=>x.name===name);
+  let amount=p.price*cart[name];
+  total+=amount;
+  message+=name+" x "+cart[name]+" = Rs. "+amount+"%0A";
+ });
+
+ message+="%0A*TOTAL: Rs. "+total+"*";
+ message+="%0A%0APlease confirm my order.";
+
+ window.open("https://wa.me/"+phone+"?text="+message,"_blank");
+}
+
+setupCategories();
+renderMenu();
+renderCart();
+
+</script>
+</body>
+  </html>
+  
