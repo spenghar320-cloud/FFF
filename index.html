@@ -4,30 +4,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FYZ PIZZA HUT | Fast Food & Pizza</title>
+<title>FYZ PIZZA HUT | Official Website</title>
 <style>
 :root{
   --red:#e32636;
   --dark:#111;
   --gold:#ffc83d;
-  --cream:#fff8ef;
+  --light:#fff8ef;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   font-family:Arial,sans-serif;
-  background:var(--cream);
+  background:var(--light);
   color:#222;
 }
 header{
-  background:#111;
+  background:#101010;
   color:white;
   padding:15px 5%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:15px;
+  align-items:center;
   flex-wrap:wrap;
+  gap:15px;
   position:sticky;
   top:0;
   z-index:100;
@@ -36,94 +36,161 @@ header{
 .logo{font-size:25px;font-weight:900;color:var(--gold)}
 .logo span{color:var(--red)}
 nav{display:flex;gap:17px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-weight:bold}
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
 nav a:hover{color:var(--gold)}
 .hero{
-  min-height:430px;
-  padding:70px 7%;
+  min-height:440px;
+  padding:65px 7%;
   display:flex;
   align-items:center;
   color:white;
   background:
-  linear-gradient(90deg,#000e,#0005),
-  url("https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=85")
-  center/cover;
+    linear-gradient(90deg,#000e,#0005),
+    url("https://loremflickr.com/1600/850/pizza,fastfood?lock=1001")
+    center/cover;
 }
 .hero-content{max-width:600px}
-.hero h1{font-size:clamp(38px,6vw,65px);margin-bottom:15px}
+.hero h1{
+  font-size:clamp(38px,6vw,65px);
+  margin-bottom:15px;
+}
 .hero h1 span{color:var(--gold)}
-.hero p{font-size:18px;line-height:1.6;margin-bottom:25px}
+.hero p{
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:25px;
+}
 .btn{
   display:inline-block;
   background:var(--red);
   color:white;
-  padding:13px 22px;
+  padding:13px 20px;
+  border:0;
   border-radius:7px;
   text-decoration:none;
   font-weight:bold;
-  border:0;
   cursor:pointer;
 }
 .btn:hover{background:#b91524}
 .section{padding:45px 5%}
-.section h2{text-align:center;font-size:32px;margin-bottom:25px}
-.search-area{max-width:600px;margin:0 auto 22px}
+.section h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:25px;
+}
+.search-area{
+  max-width:600px;
+  margin:0 auto 22px;
+}
 .search-area input{
-  width:100%;padding:14px;border:1px solid #ccc;
-  border-radius:9px;font-size:16px;
+  width:100%;
+  padding:14px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  font-size:16px;
 }
 .categories{
-  display:flex;justify-content:center;gap:9px;
-  flex-wrap:wrap;margin-bottom:28px;
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
 }
 .categories button{
-  border:0;background:#222;color:white;padding:10px 16px;
-  border-radius:25px;cursor:pointer;font-weight:bold;
+  border:0;
+  background:#222;
+  color:white;
+  padding:10px 16px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
 }
-.categories button.active,.categories button:hover{
-  background:var(--red);
-}
+.categories button.active,
+.categories button:hover{background:var(--red)}
 .menu-grid{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:20px;
 }
 .food-card{
-  background:white;border-radius:13px;overflow:hidden;
+  background:white;
+  border-radius:13px;
+  overflow:hidden;
   box-shadow:0 4px 15px #00000012;
-  display:flex;flex-direction:column;
+  display:flex;
+  flex-direction:column;
 }
 .food-card img{
-  width:100%;height:185px;object-fit:cover;
+  width:100%;
+  height:185px;
+  object-fit:cover;
   background:#eee;
 }
-.food-info{padding:14px;display:flex;flex-direction:column;flex:1}
+.food-info{
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
 .food-info h3{font-size:18px;margin-bottom:7px}
-.food-info p{color:#666;font-size:13px;line-height:1.4;flex:1}
-.price{font-size:19px;font-weight:900;color:var(--red);margin:12px 0}
+.food-info p{
+  color:#666;
+  font-size:13px;
+  line-height:1.5;
+  flex:1;
+}
+.price{
+  font-size:19px;
+  font-weight:900;
+  color:var(--red);
+  margin:12px 0;
+}
 .food-info button{width:100%}
 .cart-section{background:#171717;color:white}
 .cart-section h2{color:var(--gold)}
 .cart-box{
-  max-width:750px;margin:auto;background:#252525;
-  padding:20px;border-radius:12px;
+  max-width:750px;
+  margin:auto;
+  background:#252525;
+  padding:20px;
+  border-radius:12px;
 }
 .cart-row{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:10px;padding:12px 0;border-bottom:1px solid #444;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #444;
 }
 .qty button{
-  background:var(--gold);border:0;padding:5px 10px;
-  border-radius:5px;cursor:pointer;font-weight:bold;
+  background:var(--gold);
+  border:0;
+  padding:5px 10px;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
 }
-.total{font-size:23px;text-align:right;margin:20px 0;color:var(--gold)}
+.total{
+  font-size:23px;
+  text-align:right;
+  margin:20px 0;
+  color:var(--gold);
+}
 .empty{text-align:center;color:#bbb;padding:15px}
 .checkout{width:100%;font-size:17px}
 .contact{text-align:center;line-height:2}
 .contact a{color:var(--red);font-weight:bold}
 footer{
-  background:#111;color:#ccc;text-align:center;
-  padding:25px 10px;line-height:1.8;
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:25px 10px;
+  line-height:1.8;
 }
 @media(max-width:950px){
   .menu-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -132,7 +199,10 @@ footer{
   header{justify-content:center}
   nav{justify-content:center}
   .hero{min-height:370px;padding:50px 6%}
-  .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .menu-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
   .food-card img{height:135px}
   .food-info{padding:10px}
   .food-info h3{font-size:15px}
@@ -157,16 +227,26 @@ footer{
 <section class="hero" id="home">
   <div class="hero-content">
     <h1>WELCOME TO <span>FYZ PIZZA HUT</span></h1>
-    <p>Enjoy delicious crispy chicken burgers, fresh pizza, loaded fries and amazing fast food. Fresh taste, great quality!</p>
+    <p>
+      Enjoy delicious crispy chicken burgers, fresh pizza,
+      loaded fries and amazing fast food.
+      Fresh taste, great quality!
+    </p>
     <a href="#menu" class="btn">EXPLORE OUR MENU</a>
   </div>
 </section>
 
 <section class="section" id="menu">
   <h2>Our Delicious Menu</h2>
+
   <div class="search-area">
-    <input id="search" type="search" placeholder="Search your favourite food..." oninput="renderMenu()">
+    <input
+      id="search"
+      type="search"
+      placeholder="Search your favourite food..."
+      oninput="renderMenu()">
   </div>
+
   <div class="categories" id="categories"></div>
   <div class="menu-grid" id="menuGrid"></div>
 </section>
@@ -174,9 +254,13 @@ footer{
 <section class="section cart-section" id="cart">
   <h2>Your Shopping Cart 🛒</h2>
   <div class="cart-box">
-    <div id="cartItems"><p class="empty">Your cart is empty.</p></div>
+    <div id="cartItems">
+      <p class="empty">Your cart is empty.</p>
+    </div>
     <div class="total" id="total">Total: Rs. 0</div>
-    <button class="btn checkout" onclick="checkout()">ORDER ON WHATSAPP</button>
+    <button class="btn checkout" onclick="checkout()">
+      ORDER ON WHATSAPP
+    </button>
   </div>
 </section>
 
@@ -184,163 +268,275 @@ footer{
   <h2>Contact FYZ PIZZA HUT</h2>
   <p>📍 DHA Phase 8, Lahore, Pakistan</p>
   <p>📞 <a href="tel:+923478603781">+92 347 8603781</a></p>
-  <p>💬 <a href="https://wa.me/923478603781" target="_blank">Chat with us on WhatsApp</a></p>
+  <p>
+    💬
+    <a href="https://wa.me/923478603781" target="_blank">
+      Chat with us on WhatsApp
+    </a>
+  </p>
   <br>
-  <a class="btn" href="https://www.google.com/maps/search/?api=1&query=DHA+Phase+8+Lahore" target="_blank">GET DIRECTIONS</a>
+  <a class="btn"
+     href="https://www.google.com/maps/search/?api=1&query=DHA+Phase+8+Lahore"
+     target="_blank">
+    GET DIRECTIONS
+  </a>
 </section>
 
 <footer>
   <div class="logo">FYZ <span>PIZZA HUT</span></div>
   Fresh Food • Great Taste • Happy Moments
-  <br>© 2026 FYZ PIZZA HUT. All Rights Reserved.
+  <br>
+  © 2026 FYZ PIZZA HUT. All Rights Reserved.
 </footer>
 
 <script>
 const WHATSAPP_NUMBER = "923478603781";
 
+/*
+  ہر پروڈکٹ کے لیے الگ تصویر کا لنک اور الگ lock رکھا گیا ہے۔
+  تصاویر بیرونی سروس سے آتی ہیں، اس لیے انٹرنیٹ ضروری ہے۔
+*/
+
 const products = [
-  // SIX DIFFERENT CHICKEN BURGERS
+
+  // CHICKEN BURGERS
+
   {
-    id:1,name:"Zinger Burger",category:"Burgers",price:550,
+    id:1,
+    name:"Zinger Burger",
+    category:"Burgers",
+    price:550,
     desc:"Classic crispy chicken fillet with fresh lettuce and sauce.",
-    image:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:2,name:"Krunch Burger",category:"Burgers",price:400,
-    desc:"Crunchy chicken patty with a soft bun and tasty sauce.",
-    image:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:3,name:"Zinger Stacker",category:"Burgers",price:750,
-    desc:"Double crispy chicken fillets stacked with fresh toppings.",
-    image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:4,name:"Mighty Zinger",category:"Burgers",price:850,
-    desc:"Big crispy chicken burger with cheese, lettuce and special sauce.",
-    image:"https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:5,name:"Kentucky Burger",category:"Burgers",price:600,
-    desc:"Golden fried chicken fillet with fresh vegetables and sauce.",
-    image:"https://images.unsplash.com/photo-1571091718767-18b5b1457adda?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:6,name:"Zinger Steak",category:"Burgers",price:700,
-    desc:"Chicken steak-style sandwich with a juicy chicken filling.",
-    image:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=800&q=85"
+    image:"https://loremflickr.com/640/420/crispy,chicken,fillet,burger?lock=1101"
   },
 
-  // BOXES - NO OTHER RESTAURANT BRANDING
   {
-    id:7,name:"WOW Box",category:"Boxes",price:1050,
-    desc:"A delicious combo of chicken, fries and burger.",
-    image:"https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=800&q=85"
+    id:2,
+    name:"Krunch Burger",
+    category:"Burgers",
+    price:400,
+    desc:"Small crunchy chicken patty burger with tasty sauce.",
+    image:"https://loremflickr.com/640/420/small,crispy,chicken,burger?lock=1102"
   },
+
   {
-    id:8,name:"Xtreme Duo Box",category:"Boxes",price:1560,
+    id:3,
+    name:"Zinger Stacker",
+    category:"Burgers",
+    price:750,
+    desc:"Double crispy chicken fillets stacked with fresh toppings.",
+    image:"https://loremflickr.com/640/420/double,chicken,burger?lock=1103"
+  },
+
+  {
+    id:4,
+    name:"Mighty Zinger",
+    category:"Burgers",
+    price:850,
+    desc:"Large crispy chicken burger with cheese and lettuce.",
+    image:"https://loremflickr.com/640/420/large,crispy,chicken,cheese,burger?lock=1104"
+  },
+
+  {
+    id:5,
+    name:"Kentucky Burger",
+    category:"Burgers",
+    price:600,
+    desc:"Golden fried chicken fillet burger with fresh vegetables.",
+    image:"https://loremflickr.com/640/420/fried,chicken,fillet,sandwich?lock=1105"
+  },
+
+  {
+    id:6,
+    name:"Zinger Steak",
+    category:"Burgers",
+    price:700,
+    desc:"Chicken steak sandwich with a juicy chicken filling.",
+    image:"https://loremflickr.com/640/420/chicken,steak,sandwich?lock=1106"
+  },
+
+  // BOX MEALS - DIFFERENT COMBOS
+
+  {
+    id:7,
+    name:"WOW Box",
+    category:"Boxes",
+    price:1050,
+    desc:"Chicken burger meal with fries and a drink.",
+    image:"https://loremflickr.com/640/420/chicken,burger,fries,meal,combo?lock=2201"
+  },
+
+  {
+    id:8,
+    name:"Xtreme Duo Box",
+    category:"Boxes",
+    price:1560,
     desc:"Two chicken burgers, fried chicken, fries and two plain drinks.",
-    image:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=800&q=85"
+    image:"https://loremflickr.com/640/420/two,chicken,burgers,fried,chicken,fries,combo?lock=2202"
   },
+
   {
-    id:9,name:"Crispy Duo Box",category:"Boxes",price:1390,
-    desc:"Chicken burgers, crispy chicken and fries to share.",
-    image:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=85"
+    id:9,
+    name:"Crispy Duo Box",
+    category:"Boxes",
+    price:1390,
+    desc:"Chicken burger, crispy chicken pieces and golden fries.",
+    image:"https://loremflickr.com/640/420/chicken,burger,chicken,tenders,fries,combo?lock=2203"
   },
+
   {
-    id:10,name:"Crispy Box",category:"Boxes",price:750,
-    desc:"Crispy fried chicken with golden fries.",
-    image:"https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=800&q=85"
+    id:10,
+    name:"Crispy Box",
+    category:"Boxes",
+    price:750,
+    desc:"Crispy fried chicken pieces served with golden fries.",
+    image:"https://loremflickr.com/640/420/fried,chicken,pieces,french,fries,meal?lock=2204"
   },
 
   // PIZZA
+
   {
-    id:11,name:"Small Pizza",category:"Pizza",price:700,
-    desc:"Freshly baked pizza with cheese and delicious toppings.",
-    image:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85"
+    id:11,
+    name:"Small Pizza",
+    category:"Pizza",
+    price:700,
+    desc:"Freshly baked small pizza with cheese and toppings.",
+    image:"https://loremflickr.com/640/420/small,cheese,pizza?lock=3301"
   },
+
   {
-    id:12,name:"Medium Pizza",category:"Pizza",price:1200,
-    desc:"A tasty medium pizza made fresh for you.",
-    image:"https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=85"
+    id:12,
+    name:"Medium Pizza",
+    category:"Pizza",
+    price:1200,
+    desc:"Fresh medium pizza made with delicious toppings.",
+    image:"https://loremflickr.com/640/420/medium,pizza,cheese?lock=3302"
   },
+
   {
-    id:13,name:"Large Pizza",category:"Pizza",price:1800,
+    id:13,
+    name:"Large Pizza",
+    category:"Pizza",
+    price:1800,
     desc:"Large cheesy pizza, perfect for sharing.",
-    image:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=85"
+    image:"https://loremflickr.com/640/420/large,pizza,pepperoni?lock=3303"
   },
 
   // SIDES
+
   {
-    id:14,name:"French Fries",category:"Sides",price:250,
+    id:14,
+    name:"French Fries",
+    category:"Sides",
+    price:250,
     desc:"Hot and crispy golden potato fries.",
-    image:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:15,name:"Loaded Fries",category:"Sides",price:450,
-    desc:"Loaded fries topped with cheese and special sauce.",
-    image:"https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:16,name:"Chicken Nuggets",category:"Sides",price:450,
-    desc:"Golden crispy chicken nuggets.",
-    image:"https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:17,name:"Chicken Wings",category:"Sides",price:600,
-    desc:"Crispy and flavourful chicken wings.",
-    image:"https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=800&q=85"
-  },
-  {
-    id:18,name:"Chicken Strips",category:"Sides",price:650,
-    desc:"Tender chicken strips with a crispy coating.",
-    image:"https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=800&q=85"
+    image:"https://loremflickr.com/640/420/french,fries?lock=4401"
   },
 
-  // DRINKS - PEPSI ONLY
   {
-    id:19,name:"Pepsi 345ml",category:"Drinks",price:180,
+    id:15,
+    name:"Loaded Fries",
+    category:"Sides",
+    price:450,
+    desc:"Loaded fries topped with cheese and special sauce.",
+    image:"https://loremflickr.com/640/420/loaded,cheese,fries?lock=4402"
+  },
+
+  {
+    id:16,
+    name:"Chicken Nuggets",
+    category:"Sides",
+    price:450,
+    desc:"Golden crispy chicken nuggets.",
+    image:"https://loremflickr.com/640/420/chicken,nuggets?lock=4403"
+  },
+
+  {
+    id:17,
+    name:"Chicken Wings",
+    category:"Sides",
+    price:600,
+    desc:"Crispy and flavourful chicken wings.",
+    image:"https://loremflickr.com/640/420/crispy,chicken,wings?lock=4404"
+  },
+
+  {
+    id:18,
+    name:"Chicken Strips",
+    category:"Sides",
+    price:650,
+    desc:"Long golden crispy breaded chicken strips.",
+    image:"https://loremflickr.com/640/420/breaded,chicken,strips,tenders?lock=4405"
+  },
+
+  // DRINKS
+
+  {
+    id:19,
+    name:"Pepsi 345ml",
+    category:"Drinks",
+    price:180,
     desc:"Chilled Pepsi 345ml.",
-    image:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=800&q=85"
+    image:"https://loremflickr.com/640/420/pepsi,soft,drink,can?lock=5501"
   }
+
 ];
 
 let cart = [];
 let currentCategory = "All";
 
-const categories = ["All","Burgers","Boxes","Pizza","Sides","Drinks"];
+const categories = [
+  "All",
+  "Burgers",
+  "Boxes",
+  "Pizza",
+  "Sides",
+  "Drinks"
+];
 
 function renderCategories(){
   document.getElementById("categories").innerHTML =
-    categories.map(cat =>
-      `<button class="${currentCategory===cat?'active':''}"
-      onclick="setCategory('${cat}')">${cat}</button>`
-    ).join("");
+    categories.map(cat => `
+      <button
+        class="${currentCategory===cat?'active':''}"
+        onclick="setCategory('${cat}')">
+        ${cat}
+      </button>
+    `).join("");
 }
 
 function setCategory(cat){
-  currentCategory=cat;
+  currentCategory = cat;
   renderCategories();
   renderMenu();
 }
 
 function renderMenu(){
-  const search = document.getElementById("search").value.toLowerCase();
+  const search =
+    document.getElementById("search").value.toLowerCase();
+
   const filtered = products.filter(p =>
     (currentCategory==="All" || p.category===currentCategory) &&
     p.name.toLowerCase().includes(search)
   );
 
-  document.getElementById("menuGrid").innerHTML = filtered.length
+  document.getElementById("menuGrid").innerHTML =
+    filtered.length
     ? filtered.map(p => `
       <article class="food-card">
-        <img src="${p.image}" alt="${p.name}" loading="lazy"
-             onerror="this.src='https://placehold.co/600x400?text=FYZ+PIZZA+HUT'">
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=FYZ+PIZZA+HUT'">
+
         <div class="food-info">
           <h3>${p.name}</h3>
           <p>${p.desc}</p>
           <div class="price">Rs. ${p.price}</div>
-          <button class="btn" onclick="addToCart(${p.id})">ADD TO CART</button>
+          <button class="btn" onclick="addToCart(${p.id})">
+            ADD TO CART
+          </button>
         </div>
       </article>
     `).join("")
@@ -348,32 +544,45 @@ function renderMenu(){
 }
 
 function addToCart(id){
-  const product = products.find(p=>p.id===id);
-  const existing = cart.find(item=>item.id===id);
-  if(existing) existing.qty++;
-  else cart.push({...product,qty:1});
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(item => item.id === id);
+
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({...product,qty:1});
+  }
+
   renderCart();
 }
 
 function changeQty(id,amount){
-  const item=cart.find(p=>p.id===id);
+  const item = cart.find(p => p.id === id);
   if(!item)return;
-  item.qty+=amount;
-  if(item.qty<=0)cart=cart.filter(p=>p.id!==id);
+
+  item.qty += amount;
+
+  if(item.qty <= 0){
+    cart = cart.filter(p => p.id !== id);
+  }
+
   renderCart();
 }
 
 function renderCart(){
-  const area=document.getElementById("cartItems");
-  if(cart.length===0){
-    area.innerHTML='<p class="empty">Your cart is empty.</p>';
+  const area = document.getElementById("cartItems");
+
+  if(cart.length === 0){
+    area.innerHTML =
+      '<p class="empty">Your cart is empty.</p>';
   }else{
-    area.innerHTML=cart.map(item=>`
+    area.innerHTML = cart.map(item => `
       <div class="cart-row">
         <div>
           <strong>${item.name}</strong><br>
           Rs. ${item.price} × ${item.qty}
         </div>
+
         <div class="qty">
           <button onclick="changeQty(${item.id},-1)">−</button>
           <strong>${item.qty}</strong>
@@ -383,33 +592,53 @@ function renderCart(){
     `).join("");
   }
 
-  const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
-  document.getElementById("total").innerText="Total: Rs. "+total;
+  const total = cart.reduce(
+    (sum,item) => sum + item.price * item.qty,0
+  );
+
+  document.getElementById("total").innerText =
+    "Total: Rs. " + total;
 }
 
 function checkout(){
-  if(cart.length===0){
+  if(cart.length === 0){
     alert("Please add items to your cart first.");
     return;
   }
 
-  let message="Assalam-o-Alaikum FYZ PIZZA HUT! I want to place an order:%0A%0A";
-  cart.forEach(item=>{
-    message+=encodeURIComponent(
-      item.name+" x "+item.qty+" = Rs. "+(item.price*item.qty)
-    )+"%0A";
+  let lines = [
+    "Assalam-o-Alaikum FYZ PIZZA HUT!",
+    "I want to place an order:",
+    ""
+  ];
+
+  cart.forEach(item => {
+    lines.push(
+      item.name + " x " + item.qty +
+      " = Rs. " + (item.price * item.qty)
+    );
   });
 
-  const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
-  message+="%0A"+encodeURIComponent("Total: Rs. "+total);
-  message+="%0A"+encodeURIComponent("Please confirm my order. Thank you!");
+  const total = cart.reduce(
+    (sum,item) => sum + item.price * item.qty,0
+  );
 
-  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+message,"_blank");
+  lines.push("");
+  lines.push("Total: Rs. " + total);
+  lines.push("Please confirm my order. Thank you!");
+
+  const message = encodeURIComponent(lines.join("\n"));
+
+  window.open(
+    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message,
+    "_blank"
+  );
 }
 
 renderCategories();
 renderMenu();
 renderCart();
 </script>
+
 </body>
 </html>
