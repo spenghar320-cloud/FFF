@@ -4,267 +4,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FYZ PIZZA HUT | Fast Food</title>
+<title>FYZ PIZZA HUT</title>
 <style>
-:root {
-  --red:#e31837;
-  --dark:#111;
-  --gold:#d5ad55;
-  --white:#fff;
-  --light:#f5f5f5;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
- font-family:Arial,Helvetica,sans-serif;
- background:var(--light);
- color:#171717;
-}
-header{
- background:#111;
- color:white;
- padding:15px 5%;
- display:flex;
- align-items:center;
- justify-content:space-between;
- position:sticky;
- top:0;
- z-index:100;
- border-bottom:3px solid var(--red);
-}
-.logo{
- color:white;
- font-size:25px;
- font-weight:900;
- letter-spacing:1px;
-}
-.logo span{color:var(--red)}
-nav{display:flex;gap:18px}
-nav a{
- color:white;
- text-decoration:none;
- font-weight:bold;
- font-size:14px;
-}
-nav a:hover{color:var(--gold)}
-.hero{
- min-height:390px;
- display:flex;
- align-items:center;
- padding:50px 7%;
- color:white;
- background:
- linear-gradient(90deg,#000e,#0005),
- url("https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=1500")
- center/cover;
-}
-.hero-content{max-width:620px}
-.hero h1{
- font-size:clamp(38px,6vw,65px);
- line-height:1.05;
- margin-bottom:15px;
-}
-.hero h1 span{color:#ff304c}
-.hero p{font-size:17px;margin-bottom:23px}
-.btn{
- display:inline-block;
- background:var(--red);
- color:white;
- border:0;
- padding:13px 19px;
- border-radius:5px;
- text-decoration:none;
- font-weight:bold;
- cursor:pointer;
-}
-.btn:hover{background:#b90020}
-.gold-btn{
- background:var(--gold);
- color:#111;
-}
-.gold-btn:hover{background:#bd923c}
-.section{padding:40px 5%}
-.section-title{
- font-size:30px;
- margin-bottom:20px;
- font-weight:900;
-}
-.section-title span{color:var(--red)}
-.search{
- width:100%;
- padding:15px;
- border:1px solid #ddd;
- border-radius:7px;
- font-size:16px;
- margin:15px 0;
- outline-color:var(--red);
-}
-.categories{
- display:flex;
- gap:9px;
- overflow-x:auto;
- padding:8px 0 18px;
-}
-.category{
- flex-shrink:0;
- border:1px solid #ddd;
- border-radius:30px;
- background:white;
- padding:11px 17px;
- cursor:pointer;
- font-weight:bold;
-}
-.category.active,.category:hover{
- background:var(--red);
- color:white;
- border-color:var(--red);
-}
-.grid{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:17px;
-}
-.card{
- background:white;
- border-radius:10px;
- overflow:hidden;
- box-shadow:0 3px 13px #00000012;
- border:1px solid #eee;
-}
-.card img{
- width:100%;
- aspect-ratio:1.25/1;
- object-fit:cover;
- display:block;
- background:#eee;
-}
-.info{padding:13px}
-.info h3{font-size:17px;margin-bottom:7px}
-.description{
- font-size:12px;
- color:#777;
- line-height:1.4;
- min-height:32px;
-}
-.price{
- color:var(--red);
- font-size:19px;
- font-weight:900;
- margin:10px 0;
-}
-.add{
- background:#111;
- color:white;
- border:0;
- width:100%;
- padding:11px 5px;
- border-radius:5px;
- font-weight:bold;
- cursor:pointer;
-}
-.add:hover{background:var(--red)}
-.no-results{
- grid-column:1/-1;
- text-align:center;
- padding:30px;
-}
-.deal-banner{
- background:#151515;
- color:white;
- border-radius:12px;
- padding:28px;
- border-left:5px solid var(--red);
-}
-.deal-banner h2{color:#ff304c;margin-bottom:10px}
-.cart-box{
- background:white;
- border-radius:10px;
- padding:20px;
- box-shadow:0 3px 15px #0001;
-}
-.cart-row{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:8px;
- padding:13px 0;
- border-bottom:1px solid #eee;
-}
-.qty{
- display:flex;
- align-items:center;
- gap:9px;
-}
-.qty button{
- width:28px;
- height:28px;
- border:0;
- border-radius:4px;
- background:#eee;
- cursor:pointer;
- font-weight:bold;
-}
-.remove{
- color:var(--red);
- border:0;
- background:none;
- cursor:pointer;
- font-size:12px;
-}
-.total{
- font-size:23px;
- font-weight:900;
- margin:20px 0;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#171717}
+:root{--red:#e31837;--dark:#111}
+header{background:#111;color:white;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:4px solid var(--red)}
+.logo{font-size:25px;font-weight:900}.logo span{color:var(--red)}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px;font-weight:bold}
+.hero{min-height:340px;padding:55px 7%;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#000e,#0005),url("https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1400") center/cover}
+.hero div{max-width:650px}
+.hero h1{font-size:clamp(38px,7vw,65px);margin:0 0 12px}
+.hero h1 span{color:#ff263f}
+.hero p{line-height:1.7}
+.btn{display:inline-block;padding:13px 19px;margin:5px 5px 0 0;border:0;border-radius:6px;background:var(--red);color:white;text-decoration:none;font-weight:bold;cursor:pointer}
+.btn.white{background:white;color:#111}
+.section{max-width:1200px;margin:auto;padding:35px 16px}
+.section h2{text-align:center;font-size:30px;margin:0 0 8px}
+.sub{text-align:center;color:#777;margin:0 0 24px}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
+#search{flex:1;min-width:170px;padding:13px;border:1px solid #ccc;border-radius:7px;font-size:15px}
+.category-btn{padding:11px 13px;background:white;border:1px solid #ddd;border-radius:7px;font-weight:bold;cursor:pointer}
+.category-btn.active,.category-btn:hover{background:var(--red);color:white}
+.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.food-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px #0001;display:flex;flex-direction:column}
+.food-card img{width:100%;height:155px;object-fit:cover;background:#eee}
+.food-info{padding:12px;display:flex;flex-direction:column;flex:1}
+.food-info h3{font-size:16px;margin:0 0 7px}
+.food-info p{font-size:12px;color:#777;margin:0 0 10px;flex:1}
+.price{font-size:17px;color:var(--red);font-weight:900;margin-bottom:10px}
+.add-btn{background:var(--red);color:white;border:0;border-radius:6px;padding:11px;font-weight:bold;cursor:pointer}
+.no-results{text-align:center;padding:25px;color:#777;display:none}
+.cart-box{background:white;padding:20px;border-radius:10px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eee}
+.cart-row small{color:#777}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:28px;height:28px;border:0;border-radius:5px;background:#eee;font-weight:bold;cursor:pointer}
+.total{display:flex;justify-content:space-between;font-size:21px;font-weight:900;margin:20px 0}
 .cart-actions{display:flex;gap:10px;flex-wrap:wrap}
-.cart-actions button{flex:1;min-width:140px}
-.contact-box{
- background:#151515;
- color:white;
- padding:24px;
- border-radius:10px;
- line-height:2;
-}
-.contact-box h3{color:var(--gold)}
-footer{
- background:#111;
- color:white;
- padding:30px 5%;
- text-align:center;
- border-top:3px solid var(--red);
- line-height:1.8;
-}
-footer span{color:var(--red)}
-.float-wa{
- position:fixed;
- right:17px;
- bottom:18px;
- z-index:200;
- background:#20c765;
- color:white;
- padding:14px 19px;
- border-radius:40px;
- text-decoration:none;
- font-weight:bold;
- box-shadow:0 3px 12px #0004;
-}
-@media(max-width:600px){
- header{padding:13px 4%}
- .logo{font-size:19px}
- nav{gap:10px}
- nav a{font-size:11px}
- .hero{min-height:340px;padding:35px 5%}
- .section{padding:30px 4%}
- .grid{gap:10px}
- .info{padding:10px}
- .info h3{font-size:15px}
- .price{font-size:17px}
- .add{font-size:11px}
-}
-@media(max-width:360px){
- nav a{font-size:10px}
- .logo{font-size:17px}
-}
+.cart-actions button{flex:1;min-width:130px;padding:13px;border:0;border-radius:7px;background:var(--red);color:white;font-weight:bold;cursor:pointer}
+.cart-actions .clear{background:#333}
+.contact{background:#111;color:white;text-align:center;padding:35px 15px}
+.contact p{line-height:1.9;color:#ddd}
+footer{background:#050505;color:#aaa;text-align:center;padding:18px;font-size:13px}
+.whatsapp-float{position:fixed;right:15px;bottom:15px;background:#20c767;color:white;text-decoration:none;padding:14px 18px;border-radius:30px;font-weight:bold;z-index:5}
+@media(min-width:700px){.food-card img{height:215px}.food-info{padding:16px}.food-info h3{font-size:18px}}
+@media(max-width:380px){.food-card img{height:120px}.food-info{padding:9px}.food-info h3{font-size:14px}.food-info p{font-size:11px}.add-btn{font-size:12px;padding:9px}}
 </style>
 </head>
 <body>
@@ -280,216 +66,147 @@ footer span{color:var(--red)}
 </header>
 
 <section class="hero" id="home">
- <div class="hero-content">
-  <h1>CRISPY.<br><span>JUICY.</span> DELICIOUS.</h1>
-  <p>Welcome to FYZ Pizza Hut. Enjoy your favourite fast food!</p>
+ <div>
+  <h1>LOVE THE <span>CRUNCH!</span></h1>
+  <p>Welcome to FYZ Pizza Hut. Enjoy delicious chicken burgers, crispy fried chicken, tasty fries and refreshing drinks. Great taste and fast service!</p>
   <a class="btn" href="#menu">ORDER NOW</a>
-  <a class="btn gold-btn" href="#deals">VIEW DEALS</a>
+  <a class="btn white" href="#contact">CONTACT US</a>
  </div>
 </section>
 
 <section class="section" id="menu">
- <h2 class="section-title">OUR <span>MENU</span></h2>
- <input class="search" id="search"
-  type="search" placeholder="Search your favourite food..."
-  oninput="renderMenu()">
- <div class="categories" id="categories"></div>
- <div class="grid" id="products"></div>
-</section>
-
-<section class="section" id="deals">
- <div class="deal-banner">
-  <h2>FAMILY FOOD TIME!</h2>
-  <p>Delicious burgers, crispy chicken and sharing meals.</p>
-  <br>
-  <a class="btn" href="#menu">EXPLORE MENU</a>
+ <h2>OUR MENU</h2>
+ <p class="sub">Choose your favourite food and add it to your cart.</p>
+ <div class="toolbar">
+  <input id="search" type="search" placeholder="Search food..." oninput="renderMenu()">
+  <button class="category-btn active" onclick="setCategory('All',this)">All</button>
+  <button class="category-btn" onclick="setCategory('Burgers',this)">Burgers</button>
+  <button class="category-btn" onclick="setCategory('Chicken',this)">Chicken</button>
+  <button class="category-btn" onclick="setCategory('Boxes',this)">Boxes</button>
+  <button class="category-btn" onclick="setCategory('Sides',this)">Sides</button>
+  <button class="category-btn" onclick="setCategory('Drinks',this)">Drinks</button>
  </div>
+ <div class="menu-grid" id="menuGrid"></div>
+ <div class="no-results" id="noResults">No matching items found.</div>
 </section>
 
 <section class="section" id="cart">
- <h2 class="section-title">YOUR <span>CART 🛒</span></h2>
+ <h2>YOUR CART</h2>
+ <p class="sub">Review your order before sending it.</p>
  <div class="cart-box">
   <div id="cartItems">Your cart is empty.</div>
-  <div class="total" id="total">Total: Rs. 0</div>
+  <div class="total"><span>Total</span><span id="cartTotal">Rs. 0</span></div>
   <div class="cart-actions">
-   <button class="btn" onclick="checkout()">ORDER ON WHATSAPP</button>
-   <button class="btn gold-btn" onclick="clearCart()">CLEAR CART</button>
+   <button onclick="checkout()">ORDER ON WHATSAPP</button>
+   <button class="clear" onclick="clearCart()">CLEAR CART</button>
   </div>
  </div>
 </section>
 
-<section class="section" id="contact">
- <h2 class="section-title">CONTACT <span>US</span></h2>
- <div class="contact-box">
-  <h3>FYZ PIZZA HUT</h3>
-  <p>📍 DHA Phase 8, Lahore, Pakistan</p>
-  <p>📞 +92 347 8603781</p>
-  <br>
-  <a class="btn" href="tel:+923478603781">CALL NOW</a>
-  <a class="btn gold-btn"
-   href="https://www.google.com/maps/search/?api=1&query=DHA+Phase+8+Lahore">
-   GET DIRECTIONS
-  </a>
- </div>
+<section class="contact" id="contact">
+ <h2>VISIT FYZ PIZZA HUT</h2>
+ <p>
+  <strong>Location:</strong> DHA Phase 8, Lahore, Pakistan<br>
+  <strong>Phone:</strong> +92 347 8603781<br>
+  <strong>WhatsApp:</strong> +92 347 8603781
+ </p>
+ <a class="btn" href="tel:+923478603781">CALL NOW</a>
+ <a class="btn" href="https://wa.me/923478603781" target="_blank">WHATSAPP US</a>
+ <a class="btn white" href="https://www.google.com/maps/search/?api=1&query=DHA+Phase+8+Lahore" target="_blank">GET DIRECTIONS</a>
 </section>
 
-<footer>
- <h2>FYZ <span>PIZZA HUT</span></h2>
- <p>Fresh Food. Great Taste. Happy Moments.</p>
- <p>DHA Phase 8, Lahore, Pakistan</p>
- <p>Phone: +92 347 8603781</p>
- <p>© 2026 FYZ Pizza Hut. All Rights Reserved.</p>
-</footer>
-
-<a class="float-wa"
- href="https://wa.me/923478603781"
- target="_blank">WhatsApp</a>
+<footer>© 2026 FYZ PIZZA HUT. All Rights Reserved.</footer>
+<a class="whatsapp-float" href="https://wa.me/923478603781" target="_blank">WhatsApp</a>
 
 <script>
-const PHONE="923478603781";
-
 const menu=[
- // BURGERS
- {name:"Krunch Burger",price:310,cat:"Burgers",
-  desc:"Crispy chicken fillet with spicy mayo.",
-  img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"},
- {name:"Zinger Burger",price:600,cat:"Burgers",
-  desc:"Crispy chicken fillet, lettuce and mayo.",
-  img:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=700"},
- {name:"Zinger Stacker",price:660,cat:"Burgers",
-  desc:"Double crispy chicken burger.",
-  img:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?w=700"},
- {name:"Mighty Zinger",price:770,cat:"Burgers",
-  desc:"A mighty double chicken burger.",
-  img:"https://images.unsplash.com/photo-1550547660-d9450f859349?w=700"},
- {name:"Kentucky Burger",price:660,cat:"Burgers",
-  desc:"Crispy chicken burger with cheese.",
-  img:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700"},
-
- // WRAPS
- {name:"Twister",price:440,cat:"Wraps",
-  desc:"Crispy chicken strips in a tortilla.",
-  img:"https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=700"},
- {name:"Zingeratha",price:390,cat:"Wraps",
-  desc:"Chicken strips wrapped in paratha.",
-  img:"https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=700"},
+ // CHICKEN BURGERS AND WRAPS
+ {name:"Krunch Burger",price:310,cat:"Burgers",desc:"Crispy fried chicken fillet burger.",img:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800"},
+ {name:"Zinger Burger",price:600,cat:"Burgers",desc:"Crunchy chicken fillet, lettuce and sauce.",img:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800"},
+ {name:"Zinger Stacker",price:660,cat:"Burgers",desc:"Two crispy chicken fillets stacked together.",img:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800"},
+ {name:"Mighty Zinger",price:770,cat:"Burgers",desc:"Large crispy chicken fillet with cheese and lettuce.",img:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800"},
+ {name:"Kentucky Burger",price:660,cat:"Burgers",desc:"Crispy chicken fillet burger with sauce.",img:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800"},
+ {name:"Twister",price:440,cat:"Burgers",desc:"Chicken strips wrapped in a tortilla.",img:"https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800"},
+ {name:"Zingeratha",price:390,cat:"Burgers",desc:"Spicy crispy chicken wrapped in paratha.",img:"https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800"},
+ {name:"Zinger Steak",price:650,cat:"Burgers",desc:"Chicken steak sandwich with fresh toppings.",img:"https://images.unsplash.com/photo-1553909489-cd47e0ef937f?w=800"},
 
  // CHICKEN
- {name:"Chicken Piece",price:320,cat:"Chicken",
-  desc:"One piece of hot and crispy chicken.",
-  img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700"},
- {name:"3 Pieces Chicken",price:720,cat:"Chicken",
-  desc:"Three pieces of crispy fried chicken.",
-  img:"https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=700"},
- {name:"Chicken & Chips",price:620,cat:"Chicken",
-  desc:"Crispy chicken served with fries.",
-  img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=700"},
- {name:"Boneless Strips",price:440,cat:"Chicken",
-  desc:"Tender boneless chicken strips.",
-  img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=700"},
+ {name:"Chicken Piece",price:320,cat:"Chicken",desc:"One piece of crispy fried chicken.",img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800"},
+ {name:"3 Pieces Chicken",price:720,cat:"Chicken",desc:"Three pieces of crispy chicken.",img:"https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800"},
+ {name:"Chicken & Chips",price:620,cat:"Chicken",desc:"Crispy chicken served with golden fries.",img:"https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=800"},
+ {name:"Boneless Strips",price:440,cat:"Chicken",desc:"Tender crispy boneless chicken strips.",img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=800"},
+ {name:"Hot Shots",price:480,cat:"Chicken",desc:"Bite-sized spicy chicken pieces.",img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=800"},
+ {name:"Hot Shot Shakers",price:550,cat:"Chicken",desc:"Crispy chicken bites with seasoning.",img:"https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800"},
+ {name:"Nuggets 6 Pcs",price:580,cat:"Chicken",desc:"Six crispy chicken nuggets.",img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=800"},
+ {name:"Saucy Wings",price:640,cat:"Chicken",desc:"Chicken wings with tasty sauce.",img:"https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=800"},
 
  // BOXES
- {name:"Crispy Box",price:750,cat:"Boxes",
-  desc:"Chicken, fries, coleslaw and drink.",
-  img:"https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?w=700"},
- {name:"WOW Box",price:1050,cat:"Boxes",
-  desc:"Zinger, chicken, fries and drink.",
-  img:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700"},
- {name:"Crispy Duo Box",price:1390,cat:"Boxes",
-  desc:"A sharing meal for two.",
-  img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700"},
- {name:"Xtreme Duo Box",price:1560,cat:"Boxes",
-  desc:"Burgers, chicken, fries and drinks.",
-  img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"},
-
- // SNACKS
- {name:"Hot Shots",price:480,cat:"Snacks",
-  desc:"Bite-sized crispy chicken pieces.",
-  img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=700"},
- {name:"Hot Shot Shakers",price:550,cat:"Snacks",
-  desc:"Crispy chicken bites with seasoning.",
-  img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700"},
- {name:"Nuggets 6 Pcs",price:580,cat:"Snacks",
-  desc:"Six golden chicken nuggets.",
-  img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=700"},
- {name:"Saucy Wings",price:640,cat:"Snacks",
-  desc:"Chicken wings with tasty sauce.",
-  img:"https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=700"},
+ {name:"Crispy Box",price:750,cat:"Boxes",desc:"2 pieces chicken, regular fries, coleslaw and drink.",img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800"},
+ {name:"WOW Box",price:1050,cat:"Boxes",desc:"Zinger burger, chicken piece, fries, coleslaw and drink.",img:"https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800"},
+ {name:"Crispy Duo Box",price:1390,cat:"Boxes",desc:"5 chicken pieces, large fries and 2 drinks.",img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800"},
+ {name:"Xtreme Duo Box",price:1560,cat:"Boxes",desc:"2 chicken Zinger burgers, 2 fried chicken pieces, large fries and 2 regular drinks.",img:"https://www.kfcpakistan.com/images/97a8fe70-7688-11f0-9442-f17609a5500f-XtremeDuoBoxcopy-2025-08-11075548.png"},
 
  // SIDES
- {name:"Regular Fries",price:340,cat:"Sides",
-  desc:"Golden crispy potato fries.",
-  img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700"},
- {name:"Large Fries",price:410,cat:"Sides",
-  desc:"A large serving of crispy fries.",
-  img:"https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=700"},
- {name:"Masala Fries",price:360,cat:"Sides",
-  desc:"Fries with delicious masala seasoning.",
-  img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700"},
- {name:"Coleslaw",price:150,cat:"Sides",
-  desc:"Fresh creamy cabbage salad.",
-  img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700"},
- {name:"Corn on the Cob",price:290,cat:"Sides",
-  desc:"Fresh sweet corn.",
-  img:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=700"},
+ {name:"Regular Fries",price:340,cat:"Sides",desc:"Golden crispy French fries.",img:"https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=800"},
+ {name:"Large Fries",price:410,cat:"Sides",desc:"Large serving of crispy fries.",img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800"},
+ {name:"Masala Fries",price:360,cat:"Sides",desc:"Fries with spicy masala seasoning.",img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800"},
+ {name:"Coleslaw",price:150,cat:"Sides",desc:"Fresh creamy coleslaw.",img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800"},
+ {name:"Corn on the Cob",price:290,cat:"Sides",desc:"Fresh sweet corn.",img:"https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=800"},
 
- // DRINKS
- {name:"Pepsi 345ml",price:180,cat:"Drinks",
-  desc:"Chilled Pepsi soft drink.",
-  img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=700"},
- {name:"7UP 345ml",price:180,cat:"Drinks",
-  desc:"Chilled 7UP soft drink.",
-  img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=700"},
- {name:"Pepsi 1.5L",price:250,cat:"Drinks",
-  desc:"Family size chilled Pepsi.",
-  img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=700"}
+ // DRINKS - EACH APPEARS ONCE
+ {name:"Pepsi 345ml",price:180,cat:"Drinks",desc:"Chilled Pepsi soft drink.",img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=800"},
+ {name:"7UP 345ml",price:180,cat:"Drinks",desc:"Chilled lemon-lime soft drink.",img:"https://images.unsplash.com/photo-1513558161293-cdaf765edfd4?w=800"},
+ {name:"Coca-Cola 345ml",price:180,cat:"Drinks",desc:"Chilled Coca-Cola soft drink.",img:"https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800"}
 ];
 
-const categories=[
- "All","Burgers","Wraps","Chicken",
- "Boxes","Snacks","Sides","Drinks"
-];
-
-let activeCategory="All";
 let cart={};
+let currentCategory="All";
 
-function setupCategories(){
- document.getElementById("categories").innerHTML=
- categories.map(c=>`
-  <button class="category ${activeCategory===c?"active":""}"
-   onclick="setCategory('${c}')">${c}</button>
- `).join("");
-}
-
-function setCategory(c){
- activeCategory=c;
- setupCategories();
+function setCategory(category,button){
+ currentCategory=category;
+ document.querySelectorAll(".category-btn").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
  renderMenu();
 }
 
 function renderMenu(){
- const term=document.getElementById("search").value.toLowerCase();
- const filtered=menu.filter(p=>
-  (activeCategory==="All"||p.cat===activeCategory)&&
-  p.name.toLowerCase().includes(term)
+ const search=document.getElementById("search").value.toLowerCase().trim();
+ const grid=document.getElementById("menuGrid");
+ grid.innerHTML="";
+ const filtered=menu.filter(item=>
+  (currentCategory==="All"||item.cat===currentCategory)&&
+  (item.name.toLowerCase().includes(search)||item.desc.toLowerCase().includes(search))
  );
+ document.getElementById("noResults").style.display=filtered.length?"none":"block";
 
- document.getElementById("products").innerHTML=
- filtered.length?filtered.map(p=>`
-  <article class="card">
-   <img src="${p.img}"
-    alt="${p.name}" loading="lazy"
-    onerror="this.onerror=null;this.src='https://placehold.co/600x450/222/fff?text=Food+Photo'">
-   <div class="info">
-    <h3>${p.name}</h3>
-    <p class="description">${p.desc}</p>
-    <div class="price">Rs. ${p.price.toLocaleString("en-PK")}</div>
-    <button class="add" onclick="addToCart('${p.name}')">
-     ADD TO CART +
-    </button>
-   </div>
-  </article>
- `).join(""):`<div class="no-results">No matching food found.</div>`;
+ filtered.forEach(item=>{
+  const card=document.createElement("div");
+  card.className="food-card";
+  const img=document.createElement("img");
+  img.src=item.img;
+  img.alt=item.name;
+  img.loading="lazy";
+  img.onerror=function(){
+   this.onerror=null;
+   this.src="https://placehold.co/600x400/222/fff?text="+encodeURIComponent(item.name);
+  };
+  const info=document.createElement("div");
+  info.className="food-info";
+  const title=document.createElement("h3");
+  title.textContent=item.name;
+  const desc=document.createElement("p");
+  desc.textContent=item.desc;
+  const price=document.createElement("div");
+  price.className="price";
+  price.textContent="Rs. "+item.price;
+  const button=document.createElement("button");
+  button.className="add-btn";
+  button.textContent="ADD TO CART";
+  button.onclick=()=>addToCart(item.name);
+  info.append(title,desc,price,button);
+  card.append(img,info);
+  grid.appendChild(card);
+ });
 }
 
 function addToCart(name){
@@ -503,90 +220,70 @@ function changeQty(name,amount){
  renderCart();
 }
 
+function renderCart(){
+ const container=document.getElementById("cartItems");
+ const entries=Object.entries(cart);
+ container.innerHTML="";
+ if(!entries.length){
+  container.textContent="Your cart is empty.";
+  document.getElementById("cartTotal").textContent="Rs. 0";
+  return;
+ }
+ let total=0;
+ entries.forEach(([name,qty])=>{
+  const item=menu.find(x=>x.name===name);
+  if(!item)return;
+  total+=item.price*qty;
+  const row=document.createElement("div");
+  row.className="cart-row";
+  const details=document.createElement("div");
+  const title=document.createElement("strong");
+  title.textContent=name;
+  const small=document.createElement("small");
+  small.textContent="Rs. "+item.price+" each";
+  details.append(title,document.createElement("br"),small);
+  const controls=document.createElement("div");
+  controls.className="qty";
+  const minus=document.createElement("button");
+  minus.textContent="−";
+  minus.onclick=()=>changeQty(name,-1);
+  const count=document.createElement("strong");
+  count.textContent=qty;
+  const plus=document.createElement("button");
+  plus.textContent="+";
+  plus.onclick=()=>changeQty(name,1);
+  controls.append(minus,count,plus);
+  row.append(details,controls);
+  container.appendChild(row);
+ });
+ document.getElementById("cartTotal").textContent="Rs. "+total.toLocaleString("en-PK");
+}
+
 function clearCart(){
  cart={};
  renderCart();
 }
 
-function renderCart(){
- const names=Object.keys(cart);
- let total=0;
-
- if(!names.length){
-  document.getElementById("cartItems").innerHTML=
-   "Your cart is empty.";
- }else{
-  document.getElementById("cartItems").innerHTML=
-   names.map(name=>{
-    const item=menu.find(p=>p.name===name);
-    const subtotal=item.price*cart[name];
-    total+=subtotal;
-    return `
-     <div class="cart-row">
-      <div>
-       <strong>${item.name}</strong><br>
-       Rs. ${subtotal.toLocaleString("en-PK")}
-       <br>
-       <button class="remove"
-        onclick="removeItem('${name}')">REMOVE</button>
-      </div>
-      <div class="qty">
-       <button onclick="changeQty('${name}',-1)">−</button>
-       <strong>${cart[name]}</strong>
-       <button onclick="changeQty('${name}',1)">+</button>
-      </div>
-     </div>
-    `;
-   }).join("");
- }
-
- document.getElementById("total").innerText=
-  "Total: Rs. "+total.toLocaleString("en-PK");
-}
-
-function removeItem(name){
- delete cart[name];
- renderCart();
-}
-
 function checkout(){
- const names=Object.keys(cart);
- if(!names.length){
-  alert("Please add food items to your cart first.");
+ const entries=Object.entries(cart);
+ if(!entries.length){
+  alert("Your cart is empty. Please add items first.");
   return;
  }
-
  let total=0;
- let lines=[
-  "*NEW ORDER - FYZ PIZZA HUT*",
-  "Location: DHA Phase 8, Lahore",
-  "",
-  "*ORDER DETAILS*"
- ];
-
- names.forEach(name=>{
-  const item=menu.find(p=>p.name===name);
-  const amount=item.price*cart[name];
-  total+=amount;
-  lines.push(
-   `${item.name} x ${cart[name]} = Rs. ${amount}`
-  );
+ let message="Hello FYZ Pizza Hut! I want to place this order:\n\n";
+ entries.forEach(([name,qty])=>{
+  const item=menu.find(x=>x.name===name);
+  if(!item)return;
+  const subtotal=item.price*qty;
+  total+=subtotal;
+  message+=name+" x "+qty+" = Rs. "+subtotal+"\n";
  });
-
- lines.push("");
- lines.push(`*TOTAL: Rs. ${total}*`);
- lines.push("");
- lines.push("Please confirm my order.");
- lines.push("Customer name:");
- lines.push("Delivery address:");
-
- const url="https://wa.me/"+PHONE+
-  "?text="+encodeURIComponent(lines.join("\n"));
-
- window.open(url,"_blank");
+ message+="\nTotal: Rs. "+total;
+ message+="\nLocation: DHA Phase 8, Lahore";
+ window.open("https://wa.me/923478603781?text="+encodeURIComponent(message),"_blank");
 }
 
-setupCategories();
 renderMenu();
 renderCart();
 </script>
