@@ -1,270 +1,650 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FYZ PIZZA HUT | Lahore</title>
-<style>
-:root {
-  --bg:#080b12;
-  --panel:#111827;
-  --gold:#ffbd39;
-  --red:#ef4444;
-  --white:#f8fafc;
-  --muted:#9ca3af;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;background:var(--bg);color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
-}
-header{
-  position:sticky;top:0;z-index:10;
-  background:rgba(8,11,18,.96);
-  border-bottom:1px solid #273244;
-  padding:15px 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:15px;flex-wrap:wrap;
-}
-.logo{font-size:25px;font-weight:900;color:var(--gold)}
-.logo span{color:white}
-nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-weight:bold;font-size:14px}
-nav a:hover{color:var(--gold)}
-.hero{
-  min-height:390px;padding:65px 7%;
-  display:flex;align-items:center;
-  background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.35)),
-  url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=85') center/cover;
-}
-.hero-content{max-width:600px}
-.hero h1{font-size:clamp(38px,7vw,65px);margin:0 0 15px}
-.hero h1 span{color:var(--gold)}
-.hero p{font-size:17px;line-height:1.6;color:#e5e7eb}
-.btn{
-  display:inline-block;border:0;border-radius:8px;padding:12px 18px;
-  font-weight:bold;text-decoration:none;cursor:pointer;
-  background:var(--gold);color:#111;margin:5px 5px 5px 0;
-}
-.btn.dark{background:#263244;color:white}
-section{padding:40px 5%}
-.section-title{text-align:center;margin:0 0 25px;font-size:30px}
-.section-title span{color:var(--gold)}
-.search-wrap{max-width:650px;margin:0 auto 22px}
-input[type="search"]{
-  width:100%;padding:14px 16px;border-radius:9px;
-  border:1px solid #374151;background:#111827;color:white;font-size:16px;
-}
-.filters{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:25px}
-.filter{
-  border:1px solid #475569;background:#111827;color:white;
-  padding:9px 14px;border-radius:30px;cursor:pointer;
-}
-.filter.active,.filter:hover{background:var(--gold);color:#111;border-color:var(--gold)}
-.menu-grid{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;
-}
-.item{
-  background:var(--panel);border:1px solid #273244;
-  border-radius:13px;overflow:hidden;display:flex;flex-direction:column;
-}
-.item img{width:100%;height:175px;object-fit:cover;background:#263244}
-.item-body{padding:13px;display:flex;flex-direction:column;flex:1}
-.item h3{margin:0 0 7px;font-size:17px}
-.item p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.4;flex:1}
-.price{color:var(--gold);font-size:18px;font-weight:900;margin-bottom:10px}
-.add{
-  border:0;border-radius:7px;padding:10px;background:var(--gold);
-  font-weight:bold;cursor:pointer;width:100%;
-}
-.add:hover{background:#ffd477}
-#cart{max-width:850px;margin:auto;background:var(--panel);padding:20px;border-radius:13px;border:1px solid #273244}
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #374151}
-.cart-row small{color:var(--muted)}
-.qty{display:flex;align-items:center;gap:9px}
-.qty button{background:#263244;color:white;border:0;border-radius:5px;padding:5px 10px;cursor:pointer}
-.total{font-size:22px;color:var(--gold);font-weight:bold;text-align:right;margin:20px 0}
-.empty{text-align:center;color:var(--muted);padding:15px}
-.contact{text-align:center;background:#101827}
-.contact p{color:#d1d5db;line-height:1.8}
-footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #273244}
-@media(max-width:900px){
-  .menu-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media(max-width:600px){
-  header{justify-content:center}
-  nav{justify-content:center}
-  .hero{min-height:340px;padding:45px 6%}
-  .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .item img{height:125px}
-  .item-body{padding:10px}
-  .item h3{font-size:14px}
-  .item p{font-size:12px}
-  .price{font-size:15px}
-  .add{font-size:12px;padding:9px 5px}
-  section{padding:30px 4%}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>FYZ · fast food</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f8f6f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 12px;
+    }
+
+    /* main app card */
+    .app {
+      max-width: 420px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      padding: 20px 18px 18px;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    /* header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo i {
+      font-size: 32px;
+      color: #e63946;
+      filter: drop-shadow(0 4px 6px rgba(230, 57, 70, 0.2));
+    }
+
+    .logo h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #1e1e2a;
+    }
+
+    .logo h1 span {
+      color: #e63946;
+    }
+
+    .cart-icon {
+      background: #f1f1f1;
+      width: 48px;
+      height: 48px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .cart-icon i {
+      font-size: 22px;
+      color: #2b2b3a;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #e63946;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      border: 2px solid white;
+    }
+
+    /* greeting / tagline */
+    .tagline {
+      margin-bottom: 18px;
+    }
+
+    .tagline h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1e1e2a;
+    }
+
+    .tagline p {
+      color: #7a7a8c;
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* search */
+    .search-bar {
+      background: #f1f1f1;
+      border-radius: 40px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .search-bar i {
+      color: #9c9caf;
+      font-size: 18px;
+    }
+
+    .search-bar input {
+      border: none;
+      background: transparent;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 500;
+      outline: none;
+      color: #1e1e2a;
+    }
+
+    .search-bar input::placeholder {
+      color: #aaaabb;
+      font-weight: 400;
+    }
+
+    /* category chips */
+    .categories {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      background: #f1f1f1;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      color: #3a3a4a;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .chip.active {
+      background: #e63946;
+      color: white;
+      box-shadow: 0 8px 14px -6px rgba(230, 57, 70, 0.4);
+    }
+
+    .chip i {
+      margin-right: 6px;
+      font-size: 13px;
+    }
+
+    /* section title */
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .section-title h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e1e2a;
+    }
+
+    .section-title a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e63946;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    /* menu grid */
+    .menu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 22px;
+      max-height: 380px;
+      overflow-y: auto;
+      padding-right: 4px;
+      scrollbar-width: thin;
+    }
+
+    .menu-grid::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .menu-grid::-webkit-scrollbar-thumb {
+      background: #ddd;
+      border-radius: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 14px 16px;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f0f0f5;
+      transition: all 0.15s;
+      cursor: default;
+    }
+
+    .menu-item:hover {
+      border-color: #ffe0e2;
+      background: #fffcfc;
+    }
+
+    .item-emoji {
+      font-size: 38px;
+      background: #fef3e9;
+      width: 64px;
+      height: 64px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-info h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1e1e2a;
+      letter-spacing: -0.2px;
+    }
+
+    .item-info .desc {
+      font-size: 12px;
+      color: #8b8b9e;
+      font-weight: 500;
+      margin: 2px 0 6px;
+    }
+
+    .price-add {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-size: 17px;
+      font-weight: 800;
+      color: #e63946;
+    }
+
+    .add-btn {
+      background: #e63946;
+      border: none;
+      border-radius: 40px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+      box-shadow: 0 6px 14px -4px rgba(230, 57, 70, 0.4);
+    }
+
+    .add-btn i {
+      font-size: 12px;
+    }
+
+    .add-btn:active {
+      transform: scale(0.94);
+      background: #c22d3a;
+    }
+
+    /* cart summary (footer) */
+    .cart-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 2px dashed #eaeaf0;
+      margin-top: 6px;
+    }
+
+    .cart-total {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-total span:first-child {
+      font-size: 13px;
+      color: #8b8b9e;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .cart-total .total-amount {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1e1e2a;
+    }
+
+    .checkout-btn {
+      background: #1e1e2a;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      padding: 14px 28px;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.3);
+    }
+
+    .checkout-btn i {
+      font-size: 16px;
+    }
+
+    .checkout-btn:active {
+      transform: scale(0.96);
+      background: #0f0f1a;
+    }
+
+    /* toast message */
+    .toast-message {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e1e2a;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      white-space: nowrap;
+    }
+
+    .toast-message.show {
+      opacity: 1;
+    }
+
+    /* empty cart special */
+    .cart-icon .cart-badge.hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">FYZ <span>PIZZA HUT</span></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#menu">Menu</a>
-    <a href="#cart-section">Cart</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h1>WELCOME TO <span>FYZ PIZZA HUT</span></h1>
-    <p>Delicious pizzas, crispy chicken, juicy chicken burgers and amazing fast food. Fresh taste, unforgettable experience!</p>
-    <a class="btn" href="#menu">Explore Menu</a>
-    <a class="btn dark" href="https://wa.me/923478603781">Order on WhatsApp</a>
-  </div>
-</section>
-
-<section id="menu">
-  <h2 class="section-title">OUR <span>MENU</span></h2>
-  <div class="search-wrap">
-    <input id="search" type="search" placeholder="Search your favourite food..." oninput="renderMenu()">
-  </div>
-  <div class="filters" id="filters"></div>
-  <div class="menu-grid" id="menuGrid"></div>
-</section>
-
-<section id="cart-section">
-  <h2 class="section-title">YOUR <span>CART</span></h2>
-  <div id="cart">
-    <div id="cartItems" class="empty">Your cart is empty. Add something delicious!</div>
-    <div class="total" id="cartTotal">Total: Rs. 0</div>
-    <button class="btn" onclick="checkout()">Order on WhatsApp</button>
-    <button class="btn dark" onclick="clearCart()">Clear Cart</button>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2 class="section-title">CONTACT <span>US</span></h2>
-  <p><strong>FYZ PIZZA HUT</strong></p>
-  <p>📍 DHA Phase 8, Lahore, Pakistan</p>
-  <p>📞 +92 347 8603781</p>
-  <a class="btn" href="tel:+923478603781">Call Now</a>
-  <a class="btn" href="https://wa.me/923478603781">WhatsApp Us</a>
-  <p><a style="color:var(--gold)" target="_blank" href="https://www.google.com/maps/search/?api=1&query=DHA+Phase+8+Lahore">Get Directions</a></p>
-</section>
-
-<footer>© 2026 FYZ PIZZA HUT. All Rights Reserved.</footer>
-
-<script>
-const products = [
-  {id:1,name:"Small Pizza",cat:"Pizza",price:700,img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80",desc:"Delicious freshly baked pizza."},
-  {id:2,name:"Medium Pizza",cat:"Pizza",price:1200,img:"https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=700&q=80",desc:"A perfect pizza to share."},
-  {id:3,name:"Large Pizza",cat:"Pizza",price:1800,img:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=700&q=80",desc:"Large size pizza with delicious toppings."},
-
-  {id:4,name:"Zinger Burger",cat:"Burgers",price:550,img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80",desc:"Crispy chicken fillet burger."},
-  {id:5,name:"Krunch Burger",cat:"Burgers",price:400,img:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=700&q=80",desc:"Crunchy chicken burger."},
-  {id:6,name:"Zinger Stacker",cat:"Burgers",price:750,img:"https://images.unsplash.com/photo-155 burger?auto=format&fit=crop&w=700&q=80",desc:"Double crispy chicken burger."},
-  {id:7,name:"Mighty Zinger",cat:"Burgers",price:850,img:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80",desc:"Big chicken fillet burger with cheese."},
-  {id:8,name:"Kentucky Burger",cat:"Burgers",price:600,img:"https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=700&q=80",desc:"Tasty crispy chicken fillet burger."},
-  {id:9,name:"Zinger Steak",cat:"Burgers",price:700,img:"https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=700&q=80",desc:"Chicken steak sandwich burger."},
-
-  {id:10,name:"French Fries",cat:"Sides",price:250,img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80",desc:"Golden crispy fries."},
-  {id:11,name:"Loaded Fries",cat:"Sides",price:450,img:"https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=700&q=80",desc:"Fries with delicious toppings."},
-  {id:12,name:"Chicken Nuggets",cat:"Sides",price:450,img:"https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80",desc:"Crispy chicken nuggets."},
-  {id:13,name:"Chicken Wings",cat:"Sides",price:600,img:"https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=700&q=80",desc:"Crispy chicken wings."},
-  {id:14,name:"Chicken Strips",cat:"Sides",price:650,img:"https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=700&q=80",desc:"Crispy chicken strips."},
-
-  {id:15,name:"WOW Box",cat:"Boxes",price:1050,img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80",desc:"A delicious chicken meal box."},
-  {id:16,name:"Xtreme Duo Box",cat:"Boxes",price:1560,img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80",desc:"Duo meal with chicken burgers and sides."},
-  {id:17,name:"Crispy Duo Box",cat:"Boxes",price:1390,img:"https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80",desc:"Chicken combo meal for sharing."},
-  {id:18,name:"Crispy Box",cat:"Boxes",price:750,img:"https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80",desc:"Crispy chicken meal box."},
-
-  {id:19,name:"Pepsi 345ml",cat:"Drinks",price:180,img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=700&q=80",desc:"Chilled Pepsi 345ml."}
-];
-
-let cart = {};
-let activeCategory = "All";
-
-function renderFilters(){
-  const cats = ["All",...new Set(products.map(p=>p.cat))];
-  document.getElementById("filters").innerHTML = cats.map(c =>
-    `<button class="filter ${activeCategory===c?'active':''}" onclick="setCategory('${c}')">${c}</button>`
-  ).join("");
-}
-function setCategory(c){activeCategory=c;renderFilters();renderMenu();}
-
-function renderMenu(){
-  const term=document.getElementById("search").value.toLowerCase();
-  const filtered=products.filter(p=>
-    (activeCategory==="All"||p.cat===activeCategory) &&
-    p.name.toLowerCase().includes(term)
-  );
-  document.getElementById("menuGrid").innerHTML=filtered.length ? filtered.map(p=>`
-    <article class="item">
-      <img src="${p.img}" alt="${p.name}" loading="lazy"
-        onerror="this.onerror=null;this.src='https://placehold.co/600x400/111827/ffbd39?text=FYZ+PIZZA+HUT'">
-      <div class="item-body">
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
-        <div class="price">Rs. ${p.price.toLocaleString("en-PK")}</div>
-        <button class="add" onclick="addToCart(${p.id})">ADD TO CART</button>
+  <div class="app">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <i class="fas fa-bolt"></i>
+        <h1><span>FYZ</span> fast</h1>
       </div>
-    </article>`).join("") : `<p class="empty">No food items found.</p>`;
-}
+      <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+    </div>
 
-function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();}
-function changeQty(id,amount){
-  cart[id]=(cart[id]||0)+amount;
-  if(cart[id]<=0)delete cart[id];
-  renderCart();
-}
-function renderCart(){
-  const entries=Object.entries(cart);
-  const box=document.getElementById("cartItems");
-  if(!entries.length){box.innerHTML='<div class="empty">Your cart is empty.</div>';}
-  else{
-    box.innerHTML=entries.map(([id,qty])=>{
-      const p=products.find(x=>x.id===Number(id));
-      return `<div class="cart-row">
-        <div><strong>${p.name}</strong><br><small>Rs. ${p.price} each</small></div>
-        <div class="qty">
-          <button onclick="changeQty(${id},-1)">−</button>
-          <strong>${qty}</strong>
-          <button onclick="changeQty(${id},1)">+</button>
-        </div>
-        <strong>Rs. ${(p.price*qty).toLocaleString("en-PK")}</strong>
-      </div>`;
-    }).join("");
-  }
-  const total=entries.reduce((sum,[id,qty])=>{
-    return sum+products.find(p=>p.id===Number(id)).price*qty;
-  },0);
-  document.getElementById("cartTotal").textContent="Total: Rs. "+total.toLocaleString("en-PK");
-}
-function clearCart(){cart={};renderCart();}
+    <!-- Tagline -->
+    <div class="tagline">
+      <h2>Crave. Click. Devour.</h2>
+      <p>⚡ hot & fresh, delivered fast</p>
+    </div>
 
-function checkout(){
-  const entries=Object.entries(cart);
-  if(!entries.length){alert("Please add food items to your cart first.");return;}
-  let total=0;
-  let message="*New Order - FYZ PIZZA HUT*%0A%0A";
-  entries.forEach(([id,qty])=>{
-    const p=products.find(x=>x.id===Number(id));
-    const subtotal=p.price*qty;total+=subtotal;
-    message+=encodeURIComponent(p.name+" x "+qty+" = Rs. "+subtotal)+"%0A";
-  });
-  message+="%0A"+encodeURIComponent("Total: Rs. "+total);
-  message+="%0A"+encodeURIComponent("Please confirm my order. Thank you!");
-  window.open("https://wa.me/923478603781?text="+message,"_blank");
-}
+    <!-- Search -->
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search burgers, fries, shakes..." id="searchInput">
+    </div>
 
-renderFilters();
-renderMenu();
-renderCart();
-</script>
+    <!-- Category chips (static for style) -->
+    <div class="categories">
+      <div class="chip active"><i class="fas fa-fire"></i> Popular</div>
+      <div class="chip"><i class="fas fa-hamburger"></i> Burgers</div>
+      <div class="chip"><i class="fas fa-french-fries"></i> Sides</div>
+      <div class="chip"><i class="fas fa-ice-cream"></i> Shakes</div>
+    </div>
+
+    <!-- Menu section title -->
+    <div class="section-title">
+      <h3>🔥 Hot right now</h3>
+      <a href="#">See all</a>
+    </div>
+
+    <!-- Menu grid (dynamic items) -->
+    <div class="menu-grid" id="menuGrid">
+      <!-- items will be injected via JS -->
+    </div>
+
+    <!-- Cart summary -->
+    <div class="cart-summary">
+      <div class="cart-total">
+        <span>YOUR TOTAL</span>
+        <span class="total-amount" id="totalAmount">$0.00</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">
+        <i class="fas fa-bag-shopping"></i> Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- toast -->
+  <div class="toast-message" id="toast"></div>
+
+  <script>
+    (function() {
+      // ---------- MENU DATA ----------
+      const menuItems = [
+        { id: 1, name: 'FYZ Double Smash', desc: 'two beef patties, cheddar, house sauce', price: 8.90, emoji: '🍔' },
+        { id: 2, name: 'Crispy Chicken Deluxe', desc: 'buttermilk fried chicken, pickles, mayo', price: 7.50, emoji: '🍗' },
+        { id: 3, name: 'Loaded Fries', desc: 'cheese sauce, bacon bits, green onions', price: 4.80, emoji: '🍟' },
+        { id: 4, name: 'Vanilla Bean Shake', desc: 'real vanilla, whipped cream, cherry', price: 4.20, emoji: '🥤' },
+        { id: 5, name: 'Spicy Beyond Burger', desc: 'plant-based patty, jalapeño, vegan cheese', price: 9.30, emoji: '🌶️' },
+        { id: 6, name: 'Onion Rings (8pcs)', desc: 'beer-battered, crispy, ranch dip', price: 3.90, emoji: '🧅' },
+        { id: 7, name: 'Choco Lava Cake', desc: 'warm molten center, vanilla ice cream', price: 5.20, emoji: '🍫' },
+        { id: 8, name: 'FYZ Classic Cola', desc: 'ice-cold, 16oz', price: 2.20, emoji: '🥤' }
+      ];
+
+      // cart state: array of { id, name, price, emoji, quantity }
+      let cart = [];
+
+      // DOM elements
+      const menuGrid = document.getElementById('menuGrid');
+      const cartBadge = document.getElementById('cartBadge');
+      const totalAmountSpan = document.getElementById('totalAmount');
+      const toastEl = document.getElementById('toast');
+      const checkoutBtn = document.getElementById('checkoutBtn');
+      const searchInput = document.getElementById('searchInput');
+      const cartIcon = document.getElementById('cartIcon');
+
+      // ---------- RENDER MENU (with optional filter) ----------
+      function renderMenu(filterText = '') {
+        const searchTerm = filterText.trim().toLowerCase();
+        const filtered = searchTerm === '' 
+          ? menuItems 
+          : menuItems.filter(item => 
+              item.name.toLowerCase().includes(searchTerm) || 
+              item.desc.toLowerCase().includes(searchTerm)
+            );
+
+        if (filtered.length === 0) {
+          menuGrid.innerHTML = `<div style="text-align:center; padding:30px 0; color:#9c9caf; font-weight:500;">
+            <i class="fas fa-search" style="font-size:28px; margin-bottom:10px; opacity:0.6;"></i><br>
+            No items match "${filterText}"
+          </div>`;
+          return;
+        }
+
+        let html = '';
+        filtered.forEach(item => {
+          html += `
+            <div class="menu-item" data-id="${item.id}">
+              <div class="item-emoji">${item.emoji}</div>
+              <div class="item-info">
+                <h4>${item.name}</h4>
+                <div class="desc">${item.desc}</div>
+                <div class="price-add">
+                  <span class="price">$${item.price.toFixed(2)}</span>
+                  <button class="add-btn" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-emoji="${item.emoji}">
+                    <i class="fas fa-plus"></i> Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        menuGrid.innerHTML = html;
+
+        // re-attach event listeners to the new add buttons
+        document.querySelectorAll('.add-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const id = parseInt(this.dataset.id);
+            const name = this.dataset.name;
+            const price = parseFloat(this.dataset.price);
+            const emoji = this.dataset.emoji;
+            addToCart(id, name, price, emoji);
+          });
+        });
+      }
+
+      // ---------- ADD TO CART ----------
+      function addToCart(id, name, price, emoji) {
+        const existing = cart.find(entry => entry.id === id);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ id, name, price, emoji, quantity: 1 });
+        }
+        updateCartUI();
+        showToast(`✅ ${name} added`);
+      }
+
+      // ---------- UPDATE CART (badge + total) ----------
+      function updateCartUI() {
+        const totalItems = cart.reduce((sum, entry) => sum + entry.quantity, 0);
+        const totalPrice = cart.reduce((sum, entry) => sum + (entry.price * entry.quantity), 0);
+
+        // update badge
+        cartBadge.textContent = totalItems;
+        if (totalItems === 0) {
+          cartBadge.classList.add('hidden');
+        } else {
+          cartBadge.classList.remove('hidden');
+        }
+
+        // update total amount
+        totalAmountSpan.textContent = `$${totalPrice.toFixed(2)}`;
+      }
+
+      // ---------- TOAST ----------
+      let toastTimeout;
+      function showToast(message) {
+        toastEl.textContent = message;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toastEl.classList.remove('show');
+        }, 1800);
+      }
+
+      // ---------- CHECKOUT (simulated) ----------
+      function handleCheckout() {
+        if (cart.length === 0) {
+          showToast('🛒 Your cart is empty — add something tasty!');
+          return;
+        }
+        const totalItems = cart.reduce((sum, e) => sum + e.quantity, 0);
+        const totalPrice = cart.reduce((sum, e) => sum + (e.price * e.quantity), 0);
+        showToast(`⚡ Order placed! ${totalItems} item${totalItems > 1 ? 's' : ''} · $${totalPrice.toFixed(2)}`);
+        // clear cart after checkout
+        cart = [];
+        updateCartUI();
+      }
+
+      // ---------- CART ICON CLICK (show items) ----------
+      function showCartDetails() {
+        if (cart.length === 0) {
+          showToast('🛍️ Your cart is empty');
+          return;
+        }
+        // build summary message
+        const totalItems = cart.reduce((sum, e) => sum + e.quantity, 0);
+        const totalPrice = cart.reduce((sum, e) => sum + (e.price * e.quantity), 0);
+        const itemsList = cart.map(e => `${e.quantity}× ${e.name}`).join(', ');
+        showToast(`🛒 ${itemsList} = $${totalPrice.toFixed(2)}`);
+      }
+
+      // ---------- SEARCH FILTER ----------
+      searchInput.addEventListener('input', function(e) {
+        renderMenu(e.target.value);
+      });
+
+      // ---------- CHECKOUT LISTENER ----------
+      checkoutBtn.addEventListener('click', handleCheckout);
+
+      // ---------- CART ICON CLICK ----------
+      cartIcon.addEventListener('click', showCartDetails);
+
+      // ---------- INITIAL RENDER ----------
+      renderMenu();
+      updateCartUI();   // set badge hidden & total 0.00
+
+      // ---------- EXTRA: clear search on load maybe? fine. ----------
+      // Also to make the "Popular" chip look active, it's static in HTML.
+      // (We don't implement category filtering to keep it simple, but it's a visual.)
+
+      // small extra: click on chips just switches active class for demo
+      const chips = document.querySelectorAll('.chip');
+      chips.forEach(chip => {
+        chip.addEventListener('click', function() {
+          chips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+          // For simplicity we don't change the menu list, but we could show a toast.
+          showToast(`🍔 ${this.innerText.trim()} selected (demo)`);
+        });
+      });
+
+      // ensure badge hidden when count 0
+      // already handled in updateCartUI
+
+      // Pre-fill badge hidden initially (since cart empty)
+      // but updateCartUI called anyway.
+    })();
+  </script>
 </body>
 </html>
